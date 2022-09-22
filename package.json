@@ -22,6 +22,6 @@
     "sass": "^1.54.9"
   },
   "lint-staged": {
-    "*.{vue,js,ts,jsx,cjs,mjs,json,tsx,cts,mts}": "eslint --fix"
+    "*.{vue,js,ts,jsx,cjs,mjs,json,tsx,cts,mts}": "eslint --fix --ignore-path .gitignore"
   }
 }
