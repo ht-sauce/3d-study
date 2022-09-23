@@ -2,8 +2,10 @@
   "private": true,
   "packageManager": "pnpm@7.3.0",
   "scripts": {
-    "build": "nuxt build",
-    "dev": "nuxt dev",
+    "build-test": "nuxt build --mode test",
+    "build-pre": "nuxt build --mode pre",
+    "build-prd": "nuxt build --mode production",
+    "dev": "nuxt dev --mode development",
     "generate": "nuxt generate",
     "preview": "nuxt preyview",
     "postinstall": "nuxt prepare",
