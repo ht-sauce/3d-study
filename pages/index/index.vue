@@ -1,6 +1,7 @@
 <template>
   <div class="home">
     <span>{{ config }}</span>
+    <el-button type="primary">查询</el-button>
     <el-button type="primary" @click="testUpload">测试文件上传</el-button>
   </div>
 </template>

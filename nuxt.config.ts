@@ -34,5 +34,12 @@ export default defineNuxtConfig({
         resolvers: [ElementPlusResolver({ importStyle: 'sass', ssr: true })],
       }),
     ],
+    css: {
+      preprocessorOptions: {
+        scss: {
+          additionalData: `@use "~/theme/element-plus/rest.scss" as *;`,
+        },
+      },
+    },
   },
 })
