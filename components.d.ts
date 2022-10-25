@@ -9,6 +9,10 @@ declare module '@vue/runtime-core' {
   export interface GlobalComponents {
     ElButton: typeof import('element-plus/lib')['ElButton']
     ElConfigProvider: typeof import('element-plus/lib')['ElConfigProvider']
+    ElDatePicker: typeof import('element-plus/lib')['ElDatePicker']
+    ElInput: typeof import('element-plus/lib')['ElInput']
+    ElRadioButton: typeof import('element-plus/lib')['ElRadioButton']
+    ElRadioGroup: typeof import('element-plus/lib')['ElRadioGroup']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
   }

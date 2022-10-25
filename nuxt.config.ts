@@ -2,13 +2,11 @@
 import AutoImport from 'unplugin-auto-import/vite'
 import Components from 'unplugin-vue-components/vite'
 import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
-import ElementPlus from 'unplugin-element-plus/vite'
 
 // 获取当前执行命令的自定义环境
 const ExcutingAnOrder = process.env.npm_lifecycle_script.split(' ')
 const env = ExcutingAnOrder[ExcutingAnOrder.length - 1]
 
-const lifecycle = process.env.npm_lifecycle_event
 export default defineNuxtConfig({
   app: {
     baseURL: '/ht',
@@ -22,11 +20,11 @@ export default defineNuxtConfig({
     },
   },
   build: {
-    transpile: lifecycle === 'build' ? ['element-plus'] : [],
+    transpile: ['element-plus/es'],
   },
+  components: true,
   vite: {
     plugins: [
-      ElementPlus({ useSource: true, defaultLocale: 'zh-cn' }),
       AutoImport({
         resolvers: [ElementPlusResolver({ importStyle: 'sass', ssr: true })],
       }),
