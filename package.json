@@ -25,10 +25,7 @@
     "lint-staged": "^13.0.3",
     "nuxt": "3.0.0-rc.12",
     "prettier": "^2.7.1",
-    "sass": "^1.54.9",
-    "unplugin-auto-import": "^0.11.2",
-    "unplugin-element-plus": "^0.4.1",
-    "unplugin-vue-components": "^0.22.7"
+    "sass": "^1.54.9"
   },
   "lint-staged": {
     "*.{vue,js,ts,jsx,cjs,mjs,json,tsx,cts,mts}": "eslint --fix --ignore-path .gitignore"

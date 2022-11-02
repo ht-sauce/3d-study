@@ -6,12 +6,13 @@
   </el-config-provider>
 </template>
 <script setup lang="ts">
-import { ID_INJECTION_KEY } from 'element-plus'
+import { ElConfigProvider, ID_INJECTION_KEY } from 'element-plus'
+
 import locale from 'element-plus/lib/locale/lang/zh-cn'
 
 const elementPlus = {
   zIndex: 2000,
-  size: 'small',
+  size: '', // 'small',
 }
 
 provide(ID_INJECTION_KEY, {
@@ -19,3 +20,6 @@ provide(ID_INJECTION_KEY, {
   current: 0,
 })
 </script>
+<style lang="scss">
+@use './theme/index.scss';
+</style>
