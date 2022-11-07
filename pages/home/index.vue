@@ -1,11 +1,14 @@
 <template>
-  <div class="home">
-    {{ home }}
-  </div>
+  <div class="home"></div>
 </template>
 
 <script setup lang="ts">
-const home = 'home'
+useHead({
+  title: '首页',
+})
+definePageMeta({
+  title: '首页',
+})
 </script>
 
 <style scoped lang="scss">
