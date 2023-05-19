@@ -16,7 +16,7 @@ export default <RouterConfig>{
       path: '/study',
       component: () => import('~/pages/study/index.vue'),
       meta: {
-        title: '学习',
+        title: '创建一个场景',
       },
     },
   ],

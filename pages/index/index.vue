@@ -1,7 +1,7 @@
 <template>
   <div class="index">
     <template v-for="item in routerList" :key="item.path">
-      <nuxt-link :to="item.path" style="margin: 10px">
+      <nuxt-link :to="item.path" style="margin: 10px" :title="item.meta?.title">
         <el-button type="primary">
           {{ item.meta?.title ?? item.path }}
         </el-button>
@@ -21,6 +21,6 @@ const routerList = router.options.routes
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-flow: wrap;
+  flex-flow: column;
 }
 </style>
