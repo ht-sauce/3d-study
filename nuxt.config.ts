@@ -1,4 +1,5 @@
 import { defineNuxtConfig } from 'nuxt/config'
+import { InputConfig } from 'c12'
 // 获取当前执行命令的自定义环境
 // @ts-ignore
 const ExcutingAnOrder = process.env.npm_lifecycle_script.split(' ')
@@ -6,6 +7,9 @@ const env = ExcutingAnOrder[ExcutingAnOrder.length - 1]
 
 export default defineNuxtConfig({
   modules: ['@element-plus/nuxt'],
+  devServer: {
+    port: 3000, // 重启才有效
+  },
   app: {
     baseURL: '/ht',
     head: {
@@ -26,4 +30,4 @@ export default defineNuxtConfig({
       env,
     },
   },
-} as any)
+} as InputConfig)

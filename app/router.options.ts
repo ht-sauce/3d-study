@@ -4,7 +4,6 @@ import type { RouterConfig } from '@nuxt/schema'
 export default <RouterConfig>{
   routes: (_routes) => [
     {
-      name: 'home',
       path: '/',
       component: () => import('~/pages/index/index.vue'),
       meta: {
@@ -12,9 +11,8 @@ export default <RouterConfig>{
       },
     },
     {
-      name: 'study',
-      path: '/study',
-      component: () => import('~/pages/study/index.vue'),
+      path: '/create-one-scene',
+      component: () => import('~/pages/create-one-scene/index.vue'),
       meta: {
         title: '创建一个场景',
       },
