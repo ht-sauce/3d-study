@@ -7,5 +7,6 @@ module.exports = {
   plugins: ['prettier'],
   rules: {
     'prettier/prettier': 1,
+    '@typescript-eslint/no-unused-vars': 'off',
   },
 }
