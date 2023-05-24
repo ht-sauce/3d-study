@@ -17,5 +17,19 @@ export default <RouterConfig>{
         title: '创建一个场景',
       },
     },
+    {
+      path: '/draw-lines',
+      component: () => import('~/pages/draw-lines/index.vue'),
+      meta: {
+        title: '画线',
+      },
+    },
+    {
+      path: '/loading-3d-model',
+      component: () => import('~/pages/loading-3d-model/index.vue'),
+      meta: {
+        title: '载入3D模型',
+      },
+    },
   ],
 }
