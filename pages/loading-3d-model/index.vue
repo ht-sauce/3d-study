@@ -74,8 +74,10 @@ onMounted(() => {
         bevelSize: 2,
         bevelSegments: 5,
       })
+      geometry.center()
       const mesh = new THREE.Mesh(geometry, material)
-      mesh.scale.set(0.03, 0.03, 0.03)
+      mesh.position.set(0, 80, 0)
+      mesh.scale.set(0.06, 0.06, 0.06)
       scene.add(mesh)
     },
   )
