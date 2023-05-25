@@ -6,6 +6,9 @@
 import * as THREE from 'three'
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js'
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js'
+import { TextGeometry } from 'three/addons/geometries/TextGeometry.js'
+import { FontLoader } from 'three/addons/loaders/FontLoader.js'
+import helvetiker from 'three/examples/fonts/helvetiker_regular.typeface.json'
 import { FPS } from '~/utils/animation'
 const sceneRef = ref<HTMLDivElement | null>(null)
 onMounted(() => {
@@ -51,6 +54,31 @@ onMounted(() => {
   // controls.maxDistance = 20
   // controls.target.set(0, 0, -0.2)
   // controls.update()
+
+  // 添加文字
+  const fontLoader = new FontLoader()
+  const material = new THREE.MeshBasicMaterial({
+    color: '#ff0000',
+  })
+  fontLoader.load(
+    // new URL('three/examples/fonts/optimer_bold.typeface.json', import.meta.url).href,
+    '/fonts/MicrosoftYaHeiRegular.json',
+    function (font: any) {
+      const geometry = new TextGeometry('加载一个蜘蛛模型', {
+        font,
+        size: 100,
+        height: 5,
+        curveSegments: 12,
+        bevelEnabled: true,
+        bevelThickness: 10,
+        bevelSize: 2,
+        bevelSegments: 5,
+      })
+      const mesh = new THREE.Mesh(geometry, material)
+      mesh.scale.set(0.03, 0.03, 0.03)
+      scene.add(mesh)
+    },
+  )
 
   function onWindowResize() {
     camera.aspect = window.innerWidth / window.innerHeight
