@@ -4,7 +4,7 @@
 
 <script setup lang="ts">
 import * as THREE from 'three'
-
+import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js'
 const sceneRef = ref<HTMLDivElement | null>(null)
 onMounted(() => {
   const renderer = new THREE.WebGLRenderer()
@@ -17,18 +17,19 @@ onMounted(() => {
 
   const scene = new THREE.Scene()
 
-  const material = new THREE.LineBasicMaterial({ color: 0x0000ff })
+  const loader = new GLTFLoader()
 
-  const points = []
-  points.push(new THREE.Vector3(-10, 0, 0))
-  points.push(new THREE.Vector3(0, 10, 0))
-  points.push(new THREE.Vector3(10, 0, 0))
+  loader.load(
+    '/可爱的蜘蛛/cute_spider__ccw.glb',
+    function (gltf: any) {
+      scene.add(gltf.scene)
+    },
+    undefined,
+    function (error: ErrorEvent) {
+      console.error(error)
+    },
+  )
 
-  const geometry = new THREE.BufferGeometry().setFromPoints(points)
-
-  const line = new THREE.Line(geometry, material)
-
-  scene.add(line)
   renderer.render(scene, camera)
 })
 </script>
