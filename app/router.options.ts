@@ -31,5 +31,12 @@ export default <RouterConfig>{
         title: '载入3D模型',
       },
     },
+    {
+      path: '/panorama-housekeeping',
+      component: () => import('~/pages/panorama-housekeeping/index.vue'),
+      meta: {
+        title: '全景看房',
+      },
+    },
   ],
 }
