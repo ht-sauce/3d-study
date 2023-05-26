@@ -38,5 +38,12 @@ export default <RouterConfig>{
         title: '全景看房',
       },
     },
+    {
+      path: '/naxida',
+      component: () => import('~/pages/naxida/index.vue'),
+      meta: {
+        title: '纳西妲',
+      },
+    },
   ],
 }
