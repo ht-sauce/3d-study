@@ -26,7 +26,7 @@ onMounted(() => {
     controls.addEventListener('change', render)
     controls.minDistance = 1
     // controls.maxDistance = 200;
-    controls.maxDistance = 100
+    controls.maxDistance = 3
     controls.enablePan = false
 
     // const geometry = new THREE.SphereGeometry(1, 10, 10);
