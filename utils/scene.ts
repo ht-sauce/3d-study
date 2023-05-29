@@ -3,20 +3,30 @@ import * as THREE from 'three'
 import { Camera } from 'three/src/Three'
 // @ts-ignore
 import Stats from 'three/addons/libs/stats.module.js'
+import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls'
 import { FPS } from '~/utils/animation'
 
+type WHFun = () => number
 // 开始一个场景
 export type StartSceneP = {
   sceneDom: HTMLElement
   camera: Camera | any
-  w: number
-  h: number
+  w: WHFun
+  h: WHFun
+  frame?: number
   dpi?: number
 }
-export function startScene({ sceneDom, camera, w, h, dpi = window.devicePixelRatio }: StartSceneP) {
+export function startScene({
+  sceneDom,
+  camera,
+  w,
+  h,
+  dpi = window.devicePixelRatio,
+  frame = 60, // 帧率
+}: StartSceneP) {
   const renderer = new THREE.WebGLRenderer({ antialias: true })
   renderer.setPixelRatio(dpi)
-  renderer.setSize(w, h)
+  renderer.setSize(w(), h())
   sceneDom?.appendChild(renderer.domElement)
 
   // 添加一个场景
@@ -31,12 +41,18 @@ export function startScene({ sceneDom, camera, w, h, dpi = window.devicePixelRat
   // stats.domElement:web页面上输出计算结果,一个div元素，
   stats.domElement.style.left = 'unset'
   stats.domElement.style.right = '0px'
+  sceneDom?.appendChild(stats.domElement)
+
+  const controls = new OrbitControls(camera, renderer.domElement)
+  // 坐标系
+  const axesHelper = new THREE.AxesHelper(window.innerHeight)
+  scene.add(axesHelper)
 
   function onWindowResize() {
-    camera.aspect = w / h
+    camera.aspect = w() / h()
     camera.updateProjectionMatrix()
 
-    renderer.setSize(w, h)
+    renderer.setSize(w(), h())
 
     render()
   }
@@ -46,7 +62,7 @@ export function startScene({ sceneDom, camera, w, h, dpi = window.devicePixelRat
     renderer.render(scene, camera)
   }
   // 模型加载是异步的所以一开始模型没有加载出来
-  const fps = new FPS(render, 60) // .raf()
+  const fps = new FPS(render, frame) // .raf()
 
   window.removeEventListener('resize', onWindowResize)
   window.addEventListener('resize', onWindowResize)
@@ -57,5 +73,7 @@ export function startScene({ sceneDom, camera, w, h, dpi = window.devicePixelRat
     light,
     fps,
     stats,
+    controls,
+    axesHelper,
   }
 }
