@@ -6,6 +6,7 @@ import * as THREE from 'three'
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls'
 import { MMDLoader } from 'three/addons/loaders/MMDLoader.js'
 import Stats from 'three/addons/libs/stats.module.js'
+import { MMDAnimationHelper } from 'three/addons/animation/MMDAnimationHelper.js'
 import { FPS } from '~/utils/animation'
 
 const canvasRef = ref<HTMLDivElement | null>(null)
