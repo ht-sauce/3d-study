@@ -4,8 +4,8 @@
 <script setup lang="ts">
 import * as THREE from 'three'
 import { MMDLoader } from 'three/addons/loaders/MMDLoader.js'
-import { startScene } from '~/utils/scene'
-
+import { startScene } from '@/utils/scene'
+import { ref, onMounted } from 'vue'
 const canvasRef = ref<HTMLDivElement | null>(null)
 
 onMounted(() => {

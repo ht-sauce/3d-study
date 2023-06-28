@@ -1,1 +1,0 @@
-Nuxt 会自动导入您components/目录中的任何组件

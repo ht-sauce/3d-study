@@ -4,7 +4,7 @@ import { Camera } from 'three/src/Three'
 // @ts-ignore
 import Stats from 'three/addons/libs/stats.module.js'
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls'
-import { FPS } from '~/utils/animation'
+import { FPS } from '@/utils/animation'
 
 type WHFun = () => number
 // 开始一个场景
